@@ -11,7 +11,11 @@ import SwiftUI
 struct iOSConcurrencyDemoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            UsersListView()
+                .environmentObject(UsersListViewModel())
+                .onAppear {
+                    UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
+                }
         }
     }
 }
