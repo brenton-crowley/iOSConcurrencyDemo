@@ -30,6 +30,14 @@ struct PostsListView: View {
         .overlay(content: {
             if model.isLoading { ProgressView("Loading Posts") }
         })
+        .alert("Application Error",
+               isPresented: $model.showAlert,
+               actions: {
+            Button("OK") {}
+        },
+               message: {
+            if let message = model.errorMessage { Text(message) }
+        })
         .navigationTitle("Posts")
         .navigationBarTitleDisplayMode(.inline)
         .listStyle(.plain)

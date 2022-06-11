@@ -32,6 +32,13 @@ struct UsersListView: View {
             .overlay(content: {
                 if model.isLoading { ProgressView() }
             })
+            .alert("Application Error", isPresented: $model.showAlert, actions: {
+                Button("OK") {}
+            }, message: {
+                if let errorMessage = model.errorMessage {
+                    Text(errorMessage)
+                }
+            })
             .navigationTitle("Users")
             .listStyle(.plain)
             .onAppear { model.fetchUsers() }
