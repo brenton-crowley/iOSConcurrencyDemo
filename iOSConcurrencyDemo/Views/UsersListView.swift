@@ -29,6 +29,9 @@ struct UsersListView: View {
                     }
                 }
             }
+            .overlay(content: {
+                if model.isLoading { ProgressView() }
+            })
             .navigationTitle("Users")
             .listStyle(.plain)
             .onAppear { model.fetchUsers() }
