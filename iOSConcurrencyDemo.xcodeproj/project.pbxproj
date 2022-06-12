@@ -22,6 +22,7 @@
 		84D5242628548C50005D81B1 /* PostsListviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5242528548C50005D81B1 /* PostsListviewModel.swift */; };
 		84D524282854944C005D81B1 /* PostsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D524272854944C005D81B1 /* PostsListView.swift */; };
 		84D5242B2855583D005D81B1 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5242A2855583D005D81B1 /* GlobalConstants.swift */; };
+		84D5242D28556D9A005D81B1 /* UserAndPosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5242C28556D9A005D81B1 /* UserAndPosts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		84D5242528548C50005D81B1 /* PostsListviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListviewModel.swift; sourceTree = "<group>"; };
 		84D524272854944C005D81B1 /* PostsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListView.swift; sourceTree = "<group>"; };
 		84D5242A2855583D005D81B1 /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
+		84D5242C28556D9A005D81B1 /* UserAndPosts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAndPosts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			children = (
 				84D5241128545546005D81B1 /* User.swift */,
 				84D52413285455F0005D81B1 /* Post.swift */,
+				84D5242C28556D9A005D81B1 /* UserAndPosts.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				84D5242228548A40005D81B1 /* Bundle+Extension.swift in Sources */,
 				84D5241B28548680005D81B1 /* UsersListViewModel.swift in Sources */,
 				84D5241728545719005D81B1 /* APIService.swift in Sources */,
+				84D5242D28556D9A005D81B1 /* UserAndPosts.swift in Sources */,
 				84D52402285453CD005D81B1 /* iOSConcurrencyDemoApp.swift in Sources */,
 				84D5242B2855583D005D81B1 /* GlobalConstants.swift in Sources */,
 				84D5242428548A6C005D81B1 /* MockData.swift in Sources */,

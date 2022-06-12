@@ -16,15 +16,19 @@ struct UsersListView: View {
             
             List {
                 
-                ForEach(model.users) { user in
+                ForEach(model.userAndPosts) { userAndPosts in
                     
                     NavigationLink {
-                        PostsListView(userId: user.id)
+                        PostsListView(posts: userAndPosts.posts)
                     } label: {
                         VStack (alignment: .leading) {
-                            Text(user.name)
-                                .font(.title)
-                            Text(user.email)
+                            HStack {
+                                Text(userAndPosts.user.name)
+                                    .font(.title)
+                                Spacer()
+                                Text("(\(userAndPosts.numberOfPosts))")
+                            }
+                            Text(userAndPosts.user.email)
                         }
                     }
                 }

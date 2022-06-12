@@ -24,3 +24,18 @@ extension Post {
     static var mockSingleUsersPostsArray: [Post] { Self.mockPosts.filter { $0.userId == 1 } }
     
 }
+
+extension UserAndPosts {
+    
+    static var mockUserAndPosts: [UserAndPosts] {
+        var newUserAndPostsArray: [UserAndPosts] = []
+        
+        User.mockUsers.forEach { user in
+            let newUserAndPosts = UserAndPosts(user: user, posts: Post.mockPosts.filter { $0.userId == user.id })
+            newUserAndPostsArray.append(newUserAndPosts)
+        }
+        
+        return newUserAndPostsArray
+    }
+    
+}
