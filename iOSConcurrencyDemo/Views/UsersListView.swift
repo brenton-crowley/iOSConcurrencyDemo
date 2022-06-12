@@ -41,7 +41,9 @@ struct UsersListView: View {
             })
             .navigationTitle("Users")
             .listStyle(.plain)
-            .onAppear { model.fetchUsers() }
+            .task {
+                await model.fetchUsers()
+            }
         }
         .environmentObject(PostsListViewModel())
     }

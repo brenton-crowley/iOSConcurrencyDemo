@@ -16,7 +16,8 @@ class PostsListViewModel: ObservableObject {
     
     var userId: Int?
     
-    func fetchPosts() {
+    @MainActor
+    func fetchPosts() async {
         
         if let userId = userId {
             
@@ -24,25 +25,28 @@ class PostsListViewModel: ObservableObject {
             
             isLoading = true
             
+            defer { isLoading = false } // runs after everything else in function has finished running
             
-            
-            defer {
-                DispatchQueue.main.async { self.isLoading = false }
+            do {
+                posts = try await apiService.getJSON()
+            } catch {
+                showAlert = true
+                errorMessage = error.localizedDescription + "\nPlease contact the developer and provide this error and the steps to reproduce."
             }
             
-            apiService.getJSON { (result: Result<[Post], APIError>) in
-                
-                switch result {
-                case .success(let posts):
-                    DispatchQueue.main.async { self.posts = posts }
-                case .failure(let error):
-                    DispatchQueue.main.async {
-                        self.showAlert = true
-                        self.errorMessage = error.localizedDescription + "\nPlease contact the developer and provide this error and the steps to reproduce."
-                    }
-                }
-                
-            }
+//            apiService.getJSON { (result: Result<[Post], APIError>) in
+//
+//                switch result {
+//                case .success(let posts):
+//                    DispatchQueue.main.async { self.posts = posts }
+//                case .failure(let error):
+//                    DispatchQueue.main.async {
+//                        self.showAlert = true
+//                        self.errorMessage = error.localizedDescription + "\nPlease contact the developer and provide this error and the steps to reproduce."
+//                    }
+//                }
+//
+//            }
             
         }
     }

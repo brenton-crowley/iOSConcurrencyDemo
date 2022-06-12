@@ -41,9 +41,9 @@ struct PostsListView: View {
         .navigationTitle("Posts")
         .navigationBarTitleDisplayMode(.inline)
         .listStyle(.plain)
-        .onAppear {
+        .task {
             model.userId = userId
-            model.fetchPosts() }
+            await model.fetchPosts() }
     }
 }
 
